@@ -44,6 +44,25 @@
       100% { background-position: 0% 50%; }
     }
 
+    @keyframes fadeInScale {
+      0% {
+        opacity: 0;
+        transform: scale(0.85);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .logo {
+      width: 100px;
+      height: auto;
+      margin-bottom: 20px;
+      animation: fadeInScale 1s ease-out forwards;
+      opacity: 0;
+    }
+
     h1 {
       font-size: 48px;
       font-weight: 800;
@@ -140,13 +159,22 @@
       h1 {
         font-size: 36px;
       }
+
+      .logo {
+        width: 80px;
+      }
     }
   </style>
 </head>
 <body>
 
+  <!-- LOGO -->
+  <img src="SIDC Logo.png" alt="SIDC Logo" class="logo" />
+
+  <!-- TITLE -->
   <h1>Saman Investment & Development Co. Dashboards</h1>
 
+  <!-- DASHBOARD CARDS -->
   <div class="cards">
     <div class="card">
       <h2>Dollar Analysis</h2>
