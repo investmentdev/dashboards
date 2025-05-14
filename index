@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saman Investment & Development Co. Dashboards</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(-45deg, #111827, #1e293b, #173f63, #256d85);
+      --glass: rgba(255, 255, 255, 0.05);
+      --border-glow: rgba(56, 189, 248, 0.3);
+      --card-hover: rgba(255, 255, 255, 0.1);
+      --neon-blue: #38bdf8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      background-size: 400% 400%;
+      animation: gradientMove 20s ease infinite;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      padding: 60px 20px;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 80px;
+      color: #fff;
+      letter-spacing: 1px;
+      text-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+      position: relative;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .card {
+      position: relative;
+      background: var(--glass);
+      border: 1px solid var(--border-glow);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 40px 30px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.3s ease;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(56,189,248,0.1) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      z-index: 0;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0, 255, 255, 0.2);
+      border-color: rgba(56, 189, 248, 0.6);
+    }
+
+    .card h2 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 25px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card a {
+      display: inline-block;
+      padding: 14px 32px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #fff;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .card a:hover {
+      background: linear-gradient(135deg, #0ea5e9, #0284c7);
+      transform: scale(1.06);
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.8);
+    }
+
+    @media (max-width: 768px) {
+      .cards {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Saman Investment & Development Co. Dashboards</h1>
+
+  <div class="cards">
+    <div class="card">
+      <h2>Dollar Analysis</h2>
+      <a href="https://investmentdev.github.io/Dollar-Analysis/" target="_blank">View Dashboard</a>
+    </div>
+
+    <div class="card">
+      <h2>Market Watch</h2>
+      <a href="https://investmentdev.github.io/Market-Watch/" target="_blank">View Dashboard</a>
+    </div>
+
+    <div class="card">
+      <h2>GPR Index</h2>
+      <a href="https://investmentdev.github.io/GPR_index/" target="_blank">View Dashboard</a>
+    </div>
+
+    <div class="card">
+      <h2>Sector Index</h2>
+      <a href="https://investmentdev.github.io/Sector-Index/" target="_blank">View Dashboard</a>
+    </div>
+  </div>
+
+</body>
+</html>
