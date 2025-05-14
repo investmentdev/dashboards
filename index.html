@@ -4,15 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Saman Investment & Development Co. Dashboards</title>
-  <link rel="icon" href="SIDC Logo.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-gradient: linear-gradient(-45deg, #111827, #1e293b, #173f63, #256d85);
+      --bg1: #111827;
+      --bg2: #1e293b;
+      --bg3: #173f63;
+      --bg4: #256d85;
       --glass: rgba(255, 255, 255, 0.05);
       --border-glow: rgba(56, 189, 248, 0.3);
       --card-hover: rgba(255, 255, 255, 0.1);
-      --neon-blue: #38bdf8;
+      --accent: #38bdf8;
+      --accent2: #0ea5e9;
+    }
+
+    .pink-theme {
+      --bg1: #3d1f2c;
+      --bg2: #5e2b45;
+      --bg3: #8f3e68;
+      --bg4: #b65389;
+      --glass: rgba(255, 255, 255, 0.07);
+      --border-glow: rgba(255, 105, 180, 0.3);
+      --card-hover: rgba(255, 255, 255, 0.12);
+      --accent: #ff7ab8;
+      --accent2: #e754a2;
     }
 
     * {
@@ -29,7 +44,7 @@
     }
 
     body {
-      background: var(--bg-gradient);
+      background: linear-gradient(-45deg, var(--bg1), var(--bg2), var(--bg3), var(--bg4));
       background-size: 400% 400%;
       animation: gradientMove 20s ease infinite;
       display: flex;
@@ -37,6 +52,7 @@
       align-items: center;
       justify-content: start;
       padding: 60px 20px;
+      transition: all 0.5s ease;
     }
 
     @keyframes gradientMove {
@@ -45,15 +61,24 @@
       100% { background-position: 0% 50%; }
     }
 
-    @keyframes fadeInScale {
-      0% {
-        opacity: 0;
-        transform: scale(0.85);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
+    .toggle-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 0 10px var(--border-glow);
+      transition: background 0.3s;
+    }
+
+    .toggle-btn:hover {
+      background: var(--accent2);
     }
 
     .logo {
@@ -70,9 +95,7 @@
       text-align: center;
       margin-bottom: 80px;
       color: #fff;
-      letter-spacing: 1px;
       text-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
-      position: relative;
     }
 
     .cards {
@@ -92,63 +115,43 @@
       -webkit-backdrop-filter: blur(20px);
       border-radius: 20px;
       padding: 40px 30px;
-      width: 300px;
+      width: 320px;
       text-align: center;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
       overflow: hidden;
       transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.3s ease;
     }
 
-    .card::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(56,189,248,0.1) 0%, transparent 60%);
-      opacity: 0;
-      transition: opacity 0.5s ease;
-      z-index: 0;
-    }
-
-    .card:hover::before {
-      opacity: 1;
-    }
-
     .card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 20px 50px rgba(0, 255, 255, 0.2);
-      border-color: rgba(56, 189, 248, 0.6);
+      box-shadow: 0 20px 50px var(--border-glow);
+      border-color: var(--accent2);
     }
 
     .card h2 {
       font-size: 22px;
       font-weight: 600;
       margin-bottom: 25px;
-      position: relative;
-      z-index: 1;
     }
 
     .card a {
-      display: inline-block;
-      padding: 14px 32px;
+      display: block;
+      margin: 10px 0;
+      padding: 12px 24px;
       font-size: 15px;
       font-weight: 600;
       text-decoration: none;
       color: #fff;
       border-radius: 12px;
-      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-      position: relative;
-      z-index: 1;
-      box-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 12px var(--accent);
       transition: all 0.3s ease;
     }
 
     .card a:hover {
-      background: linear-gradient(135deg, #0ea5e9, #0284c7);
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
       transform: scale(1.06);
-      box-shadow: 0 0 18px rgba(56, 189, 248, 0.8);
+      box-shadow: 0 0 18px var(--accent2);
     }
 
     @media (max-width: 768px) {
@@ -165,38 +168,61 @@
         width: 80px;
       }
     }
+
+    @keyframes fadeInScale {
+      0% { opacity: 0; transform: scale(0.85); }
+      100% { opacity: 1; transform: scale(1); }
+    }
   </style>
 </head>
 <body>
 
-  <!-- LOGO -->
+  <!-- Theme Toggle Button -->
+  <button class="toggle-btn" onclick="toggleTheme()">Switch Theme</button>
+
+  <!-- Logo -->
   <img src="SIDC Logo.png" alt="SIDC Logo" class="logo" />
 
-  <!-- TITLE -->
+  <!-- Title -->
   <h1>Saman Investment & Development Co. Dashboards</h1>
 
-  <!-- DASHBOARD CARDS -->
+  <!-- Dashboard Cards -->
   <div class="cards">
+
+    <!-- Industry Reports -->
     <div class="card">
-      <h2>Dollar Analysis</h2>
-      <a href="https://investmentdev.github.io/Dollar-Analysis/" target="_blank">View Dashboard</a>
+      <h2>Industry Reports</h2>
+      <a href="https://investmentdev.github.io/Glass-Manufacturing/" target="_blank">Glass Manufacturing</a>
+      <a href="https://investmentdev.github.io/Insurance/" target="_blank">Insurance</a>
+      <a href="https://investmentdev.github.io/Pump-Manufactring/" target="_blank">Pump Manufacturing</a>
+      <a href="https://investmentdev.github.io/Investment-Banking/" target="_blank">Investment Banking</a>
     </div>
 
+    <!-- Market Watch -->
     <div class="card">
       <h2>Market Watch</h2>
-      <a href="https://investmentdev.github.io/Market-Watch/" target="_blank">View Dashboard</a>
+      <a href="https://investmentdev.github.io/Sector-Index/" target="_blank">Sector Index</a>
+      <a href="https://investmentdev.github.io/tsescreener/" target="_blank">TSE Screener</a>
+      <a href="https://investmentdev.github.io/Market-Watch/" target="_blank">Market Watch</a>
+      <a href="https://investmentdev.github.io/Dollar-Analysis/" target="_blank">Dollar Analysis</a>
     </div>
 
+    <!-- Macroeconomics -->
     <div class="card">
-      <h2>GPR Index</h2>
-      <a href="https://investmentdev.github.io/GPR_index/" target="_blank">View Dashboard</a>
+      <h2>Macroeconomics Reports</h2>
+      <a href="https://investmentdev.github.io/GPR_index/" target="_blank">GPR Index</a>
+      <a href="https://investmentdev.github.io/Macro-report/" target="_blank">Macro Report</a>
     </div>
 
-    <div class="card">
-      <h2>Sector Index</h2>
-      <a href="https://investmentdev.github.io/Sector-Index/" target="_blank">View Dashboard</a>
-    </div>
   </div>
+
+  <!-- JavaScript Theme Switcher -->
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('pink-theme');
+    }
+  </script>
 
 </body>
 </html>
+
