@@ -107,6 +107,8 @@
       gap: 40px;
       justify-content: center;
       max-width: 1500px;
+      padding: 0 10px;
+      box-sizing: border-box;
       width: 100%;
     }
 
@@ -117,8 +119,8 @@
       -webkit-backdrop-filter: blur(20px);
       border-radius: 20px;
       padding: 40px 30px;
-      width: 400px;
-      max-width: 100%;
+      width: 100%;
+      max-width: 400px;
       text-align: center;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
       transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.3s ease;
@@ -136,7 +138,7 @@
   opacity: 0;
   transition: opacity 0.5s ease;
   z-index: 0;
-  pointer-events: none; /* ← Add this line */
+  pointer-events: none; 
 }
 
 
@@ -257,17 +259,10 @@
       </div>
 
       <div class="subsection">
-        <h3>Commercial Banking</h3>
-        <div class="links">
-          <a href="https://investmentdev.github.io/CommercialBank/" target="_blank">Dashboard</a>
-        </div>
-      </div>
-      
-      <div class="subsection">
         <h3>Tomato Paste Production</h3>
         <div class="links">
           <a href="https://investmentdev.github.io/dashboards/Tomato%20Price%20Heat%20Map.pdf" target="_blank">Price Heatmap</a>
-          <a href="https://investmentdev.github.io/dashboards/Tomato%20Paste%201403-offline.pdf" target="_blank">Report</a>
+          <a href="https://investmentdev.github.io/dashboards/Tomato%20Paste%201403-offline.pdf" target="_blank">Tomato Paste Report Report</a>
         </div>
       </div>
 
@@ -288,21 +283,37 @@
 <!-- Macroeconomics Reports Card -->
 <div class="card">
   <h2>Macroeconomics Reports</h2>
-  <div style="display: flex; flex-direction: column; gap: 20px;">
-      <a href="https://investmentdev.github.io/GPR_index/" target="_blank">GPR Index</a>
-      <a href="https://investmentdev.github.io/Dollar-Analysis/" target="_blank">Dollar Analysis</a>
-      <a href="https://investmentdev.github.io/MacroMonthly/" target="_blank">Monthly Macro Report</a>
-      <div class="subsection">
-        <h3>Annual Macro Report</h3>
-        <div class="links">
-          <a href="https://investmentdev.github.io/Macro/" target="_blank">Dashboard</a>
-          <a href="https://investmentdev.github.io/dashboards/Macro%20Report%20-%2020241117.pdf" target="_blank">PDF Report</a>
-        </div>
-      </div>
-      
+
+  <div class="subsection">
+    <h3>Annual Macro Report</h3>
+    <div class="links">
+      <a href="https://investmentdev.github.io/Macro/" target="_blank">Dashboard</a>
+      <a href="https://investmentdev.github.io/dashboards/Macro%20Report%20-%2020241117.pdf" target="_blank">PDF Report</a>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3>Monthly Macro Report</h3>
+    <div class="links">
+      <a href="https://investmentdev.github.io/MacroMonthly/" target="_blank">Dashboard</a>
+      <a href="https://investmentdev.github.io/dashboards/Macro-Report%20-%20Monthly%20-%201404-04.pdf" target="_blank">PDF Report</a>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3>GPR Index</h3>
+    <div class="links">
+      <a href="https://investmentdev.github.io/GPR_index/" target="_blank">Open</a>
+    </div>
+  </div>
+
+  <div class="subsection">
+    <h3>Dollar Analysis</h3>
+    <div class="links">
+      <a href="https://investmentdev.github.io/Dollar-Analysis/" target="_blank">Open Report</a>
+    </div>
   </div>
 </div>
-
 
   </div>
 </body>
